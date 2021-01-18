@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
       
-        DOCKER_IMAGE_NAME = "DanielPortillo95/gradle-test"
+        DOCKER_IMAGE_NAME = "danielportillo95/gradle-test"
     }
     stages {
          stage('Build') {	
@@ -13,16 +13,16 @@ pipeline {
             }	
         }
        
-      //  stage('Build Docker Image') {
-        //    when {
-          //      branch 'master'
-           // }
-            //steps {
-              //  script {
-                //    app = docker.build(DOCKER_IMAGE_NAME)
-               // }
-           // }
-       // }
+      stage('Build Docker Image') {
+            when {
+               branch 'master'
+            }
+            steps {
+                script {
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                }
+            }
+        }
         stage('Push Docker Image') {
             when {
                 branch 'master'
