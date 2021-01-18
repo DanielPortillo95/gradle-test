@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
       
-        DOCKER_IMAGE_NAME = "felipelujan/gradle-test"
+        DOCKER_IMAGE_NAME = "danielportillo95/gradle-test"
     }
     stages {
          stage('Build') {	
